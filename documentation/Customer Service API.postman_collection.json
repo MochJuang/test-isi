@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "7e6aff8d-7178-4560-9cb3-3f35feb72371",
+		"name": "Customer Service API",
+		"description": "Collection for Customer Service API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7914152"
+	},
+	"item": [
+		{
+			"name": "Register Customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"John Doe\",\n  \"nik\": \"1234567890\",\n  \"phone_number\": \"081234567890\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/daftar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"daftar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"card_number\": \"ACC1234567890\",\n  \"nominal\": 100000\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/tabung",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tabung"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdraw",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"card_number\": \"ACC1234567890\",\n  \"nominal\": 50000\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/tarik",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tarik"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Balance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/saldo/ACC1234567890",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"saldo",
+						"ACC1234567890"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

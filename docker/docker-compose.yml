@@ -1,0 +1,33 @@
+services:
+  customer_service:
+    container_name: test_isi_customer_service
+    build:
+      context: ./
+      dockerfile: customer_service.dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SERVER_ADDRESS=customer_service:8080
+      - DB_SOURCE=host=172.17.0.1 user=user password=92jf923_93jf dbname=test_isi_db port=5432 sslmode=disable TimeZone=Asia/Jakarta
+    networks:
+      - internal
+    depends_on:
+      - db
+
+  db:
+    container_name: test_isi_db
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: 92jf923_93jf
+      POSTGRES_DB: test_isi_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: bridge
